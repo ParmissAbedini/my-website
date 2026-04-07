@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parmiss Abedini — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FAF7F2;
+    --warm-white: #F5F0E8;
+    --terracotta: #C4673A;
+    --deep-brown: #2C1810;
+    --mid-brown: #5C3D2E;
+    --gold: #B8965A;
+    --light-gold: #D4AF7A;
+    --text: #2C1810;
+    --text-light: #6B4C3B;
+    --border: #DDD0BC;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(250,247,242,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--deep-brown);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--terracotta); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 68px;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 60px 80px 80px;
+    background: var(--warm-white);
+  }
+
+  .hero-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 28px;
+    font-weight: 400;
+  }
+
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.5rem, 5vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--deep-brown);
+    margin-bottom: 8px;
+  }
+
+  .hero-name em {
+    font-style: italic;
+    color: var(--terracotta);
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--mid-brown);
+    margin-bottom: 32px;
+    letter-spacing: 0.02em;
+  }
+
+  .hero-desc {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    max-width: 420px;
+    line-height: 1.8;
+    margin-bottom: 48px;
+  }
+
+  .hero-cta-group {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 13px 32px;
+    background: var(--terracotta);
+    color: white;
+    text-decoration: none;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 400;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .btn-primary:hover { background: var(--mid-brown); transform: translateY(-1px); }
+
+  .btn-secondary {
+    display: inline-block;
+    padding: 13px 32px;
+    border: 1px solid var(--border);
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 400;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .btn-secondary:hover { border-color: var(--terracotta); color: var(--terracotta); }
+
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    display: block;
+  }
+
+  .hero-right::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(196,103,58,0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  /* SECTION BASE */
+  section {
+    padding: 100px 80px;
+  }
+
+  .section-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 12px;
+    font-weight: 400;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 3.5vw, 3.5rem);
+    font-weight: 300;
+    color: var(--deep-brown);
+    line-height: 1.1;
+    margin-bottom: 60px;
+  }
+
+  /* ABOUT */
+  #about {
+    background: var(--cream);
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .about-sidebar {
+    position: sticky;
+    top: 88px;
+  }
+
+  .about-content p {
+    font-size: 1.05rem;
+    color: var(--text-light);
+    line-height: 1.9;
+    margin-bottom: 24px;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 40px;
+  }
+
+  .skill-tag {
+    padding: 8px 16px;
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    color: var(--mid-brown);
+    text-align: center;
+  }
+
+  /* PROJECTS */
+  #projects {
+    background: var(--warm-white);
+    padding: 100px 80px;
+  }
+
+  .projects-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 60px;
+  }
+
+  .projects-header .section-title { margin-bottom: 0; }
+
+  /* PROJECT CARD */
+  .project-block {
+    margin-bottom: 100px;
+    border-top: 1px solid var(--border);
+    padding-top: 60px;
+  }
+
+  .project-block:last-child { margin-bottom: 0; }
+
+  .project-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 40px;
+  }
+
+  .project-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem;
+    font-weight: 300;
+    color: var(--border);
+    line-height: 1;
+  }
+
+  .project-info { flex: 1; padding: 0 40px; }
+
+  .project-category {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 10px;
+  }
+
+  .project-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.4rem;
+    font-weight: 300;
+    color: var(--deep-brown);
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+
+  .project-desc {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    line-height: 1.8;
+    max-width: 600px;
+  }
+
+  .project-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+  }
+
+  .tag {
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border: 1px solid var(--border);
+    color: var(--text-light);
+  }
+
+  /* IMAGE LAYOUTS */
+  .img-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .img-grid-3 {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .img-grid-asymm {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .img-single {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .project-img {
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+
+  .project-img:hover { transform: scale(1.02); }
+
+  .img-wrapper { overflow: hidden; }
+
+  .img-wrapper.tall .project-img { height: 460px; }
+  .img-wrapper.short .project-img { height: 260px; }
+  .img-wrapper.fea .project-img { height: 400px; object-fit: contain; background: #f0eae0; }
+  .img-wrapper.fea-crop .project-img { object-fit: cover; object-position: center 40%; background: #f0eae0; }
+
+  .img-caption {
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+    color: var(--text-light);
+    margin-top: 10px;
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  /* PROJECT DETAILS */
+  .project-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border);
+  }
+
+  .detail-block h4 {
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 12px;
+    font-weight: 400;
+  }
+
+  .detail-block ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .detail-block ul li {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    padding: 4px 0;
+    border-bottom: 1px solid var(--border);
+    line-height: 1.5;
+  }
+
+  .result-stat {
+    padding: 20px;
+    background: var(--cream);
+    border-left: 3px solid var(--terracotta);
+    margin-bottom: 12px;
+  }
+
+  .result-stat .stat-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--deep-brown);
+    display: block;
+  }
+
+  .result-stat .stat-label {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    letter-spacing: 0.06em;
+  }
+
+  /* EDUCATION */
+  #education {
+    background: var(--deep-brown);
+    color: white;
+  }
+
+  #education .section-label { color: var(--light-gold); }
+  #education .section-title { color: white; }
+
+  .edu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .edu-card {
+    padding: 40px;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.04);
+    transition: border-color 0.2s;
+  }
+
+  .edu-card:hover { border-color: var(--light-gold); }
+
+  .edu-degree {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: white;
+    margin-bottom: 8px;
+  }
+
+  .edu-school {
+    font-size: 0.85rem;
+    color: var(--light-gold);
+    letter-spacing: 0.06em;
+    margin-bottom: 6px;
+  }
+
+  .edu-year {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .edu-details {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.8;
+  }
+
+  /* CONTACT */
+  #contact {
+    background: var(--cream);
+    text-align: center;
+    padding: 120px 80px;
+  }
+
+  .contact-inner { max-width: 600px; margin: 0 auto; }
+
+  .contact-email {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--deep-brown);
+    text-decoration: none;
+    display: block;
+    margin: 32px 0;
+    transition: color 0.2s;
+  }
+
+  .contact-email:hover { color: var(--terracotta); }
+
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 40px;
+  }
+
+  .contact-links a {
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .contact-links a:hover { color: var(--terracotta); }
+
+  /* FOOTER */
+  footer {
+    background: var(--deep-brown);
+    color: rgba(255,255,255,0.35);
+    text-align: center;
+    padding: 28px;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    /* NAV */
+    nav { padding: 0 20px; height: 56px; }
+    .nav-logo { font-size: 1rem; }
+
+    /* HERO */
+    .hero { 
+      display: flex; 
+      flex-direction: column; 
+      padding-top: 56px; 
+      min-height: auto; 
+    }
+    .hero-left { 
+      padding: 36px 20px 40px; 
+      order: 2; 
+      text-align: left;
+      width: 100%;
+    }
+    .hero-right { 
+      order: 1; 
+      width: 100%;
+      height: 85vw;
+      max-height: 500px;
+      min-height: 280px;
+    }
+    .hero-right img {
+      object-position: center 25% !important;
+    }
+    .hero-right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+    }
+    .hero-name { font-size: 2.6rem; line-height: 1.05; }
+    .hero-eyebrow { font-size: 0.65rem; margin-bottom: 12px; }
+    .hero-title { font-size: 0.95rem; margin-bottom: 16px; }
+    .hero-desc { font-size: 0.82rem; margin-bottom: 24px; max-width: 100%; }
+    .hero-cta-group { flex-direction: row; gap: 10px; flex-wrap: wrap; }
+    .btn-primary, .btn-secondary { 
+      padding: 12px 18px; 
+      font-size: 0.7rem;
+      flex: 1;
+      text-align: center;
+      min-width: 120px;
+    }
+
+    /* SECTIONS */
+    section { padding: 56px 20px; }
+    #projects { padding: 56px 20px; }
+    #contact { padding: 64px 20px; }
+    .section-title { font-size: 1.9rem; margin-bottom: 36px; }
+    .section-label { font-size: 0.65rem; }
+
+    /* ABOUT */
+    #about { 
+      display: flex;
+      flex-direction: column;
+      gap: 28px; 
+      padding: 56px 20px; 
+    }
+    .about-sidebar { position: static; }
+    .about-sidebar .section-title { font-size: 1.9rem; margin-bottom: 0; }
+    .about-content p { font-size: 0.88rem; line-height: 1.75; }
+    .skills-grid { grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 24px; }
+    .skill-tag { font-size: 0.67rem; padding: 6px 8px; }
+
+    /* PROJECTS */
+    .projects-header { flex-direction: column; gap: 0; margin-bottom: 36px; align-items: flex-start; }
+    .projects-header .section-title { text-align: left; }
+    .section-label { text-align: left; }
+    .project-block { margin-bottom: 60px; padding-top: 36px; }
+    .project-meta { flex-direction: column; gap: 12px; }
+    .project-number { font-size: 2.2rem; }
+    .project-info { padding: 0; }
+    .project-title { font-size: 1.7rem; }
+    .project-desc { font-size: 0.83rem; line-height: 1.75; }
+    .project-tags { gap: 6px; }
+    .tag { font-size: 0.65rem; padding: 4px 10px; }
+
+    /* IMAGES */
+    .img-grid-2,
+    .img-grid-3,
+    .img-grid-asymm { 
+      display: flex;
+      flex-direction: column;
+      gap: 12px; 
+    }
+    .project-img { height: 240px; }
+    .img-wrapper.tall .project-img { height: 300px; }
+    .img-wrapper.fea .project-img { height: 220px; }
+    .img-wrapper.short .project-img { height: 200px; }
+
+    /* PROJECT DETAILS */
+    .project-details { 
+      display: flex;
+      flex-direction: column;
+      gap: 16px; 
+      padding-top: 24px; 
+      margin-top: 24px; 
+    }
+    .result-stat { padding: 14px; margin-bottom: 8px; }
+    .result-stat .stat-value { font-size: 1.25rem; }
+    .result-stat .stat-label { font-size: 0.7rem; }
+    .detail-block h4 { font-size: 0.65rem; }
+    .detail-block ul li { font-size: 0.8rem; }
+
+    /* CONTACT */
+    .contact-inner { max-width: 100%; }
+    .contact-email { font-size: 1rem; word-break: break-all; margin: 24px 0; }
+    .contact-links { gap: 20px; flex-wrap: wrap; justify-content: center; }
+    .contact-links a { font-size: 0.72rem; }
+
+    /* FOOTER */
+    footer { font-size: 0.68rem; padding: 20px; }
+  }
+
+  @media (max-width: 480px) {
+    nav { height: 52px; }
+    .hero-name { font-size: 2.1rem; }
+    .hero-right { height: 72vw; }
+    section { padding: 44px 16px; }
+    #projects { padding: 44px 16px; }
+    #about { padding: 44px 16px; }
+    #contact { padding: 52px 16px; }
+    .section-title { font-size: 1.7rem; }
+    .project-title { font-size: 1.4rem; }
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+    .project-img { height: 200px; }
+    .img-wrapper.tall .project-img { height: 260px; }
+    .contact-email { font-size: 0.88rem; }
+    .btn-primary, .btn-secondary { font-size: 0.68rem; padding: 11px 14px; }
+    .hero-desc { font-size: 0.8rem; }
+  }
+
+  /* HAMBURGER MENU */
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    z-index: 200;
+  }
+  .nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--deep-brown);
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+  @media (max-width: 640px) {
+    .nav-toggle { display: flex; }
+    .nav-links {
+      display: none;
+      position: fixed;
+      top: 52px;
+      left: 0; right: 0;
+      background: rgba(250,247,242,0.98);
+      backdrop-filter: blur(12px);
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      z-index: 99;
+    }
+    .nav-links.open { display: flex; }
+    .nav-links li { width: 100%; text-align: center; }
+    .nav-links a { 
+      display: block; 
+      padding: 14px 0; 
+      font-size: 0.82rem; 
+      letter-spacing: 0.14em;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-links li:last-child a { border-bottom: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Parmiss Abedini</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Biomedical Engineering · UBC Graduate · EIT</p>
+    <h1 class="hero-name">Parmiss<br><em>Abedini</em></h1>
+    <p class="hero-title">Mechanical Design &amp; Prototyping Engineer</p>
+    <p class="hero-desc">
+      Medical Devices · CAD Modeling · FEA · Testing &amp; Verification<br><br>
+      Biomedical Engineering graduate from UBC with hands-on experience in mechanical design, CAD modeling, prototyping, and engineering testing through medical device development projects.
+    </p>
+    <div class="hero-cta-group">
+      <a href="#projects" class="btn-primary">View Projects</a>
+      <a href="#" class="btn-secondary" onclick="document.getElementById('email-modal').style.display='flex';return false;">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="newimage.jpg">
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-sidebar">
+    <p class="section-label">Profile</p>
+    <h2 class="section-title" style="font-size:2.5rem; margin-bottom:0;">About<br>Me</h2>
+  </div>
+  <div class="about-content">
+    <p>I am a Biomedical Engineering graduate from the University of British Columbia, specializing in mechanical design, CAD modeling, prototyping, and engineering testing. My work spans the full product development lifecycle — from concept ideation and FMEA to FEA structural analysis, verification testing, and DHF documentation.</p>
+    <p>I am passionate about solving real clinical problems through elegant mechanical design. My project experience includes a self-reducing wrist fracture device, an IV line organizer, and a distal femur implant — all developed with a rigorous engineering process and a patient-centered mindset.</p>
+    <p>I am actively seeking roles in product development, mechanical design, and manufacturing engineering within the medical device industry.</p>
+    <div class="skills-grid">
+      <span class="skill-tag">SolidWorks CAD</span>
+      <span class="skill-tag">FEA / Simulation</span>
+      <span class="skill-tag">3D Prototyping</span>
+      <span class="skill-tag">FMEA</span>
+      <span class="skill-tag">DHF Documentation</span>
+      <span class="skill-tag">Mechanical Testing</span>
+      <span class="skill-tag">GD&amp;T / Drawings</span>
+      <span class="skill-tag">Medical Devices</span>
+      <span class="skill-tag">BOM Management</span>
+      <span class="skill-tag">Requirements Tracing</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="projects-header">
+    <div>
+      <p class="section-label">Selected Work</p>
+      <h2 class="section-title">Engineering<br>Projects</h2>
+    </div>
+  </div>
+
+  <!-- PROJECT 1: Wrist Fracture Device -->
+  <div class="project-block">
+    <div class="project-meta">
+      <span class="project-number">01</span>
+      <div class="project-info">
+        <p class="project-category">Medical Device · Capstone Project</p>
+        <h3 class="project-title">Self-Reducing Wrist<br>Fracture Device</h3>
+        <p class="project-desc">A portable mechanical system designed to assist wrist fracture reduction through controlled traction, independent of hospital beds or external mounting. Developed for emergency rooms, clinics, and remote environments with a focus on structural integrity, adjustability, and patient safety.</p>
+        <div class="project-tags">
+          <span class="tag">SolidWorks</span>
+          <span class="tag">FEA</span>
+          <span class="tag">Prototyping</span>
+          <span class="tag">FMEA</span>
+          <span class="tag">DHF</span>
+          <span class="tag">Traction Mechanism</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main hero image: device in use -->
+    <div class="img-single">
+      <div class="img-wrapper tall">
+       <img src="newimage2.jpg" style="display:block; margin-bottom:5px;">
+     <p class="img-caption">Alpha prototype of the wrist traction device applying controlled linear traction to the forearm using a winch-driven telescopic mechanism.</p>
+    </div>
+
+    <!-- Testing + kit -->
+    <div class="img-grid-asymm">
+      <div class="img-wrapper">
+       <img src="newimage3.PNG" style="width:100%;">
+        <p class="img-caption">Mechanical testing of the wrist traction device demonstrating sustained ~120 lbs traction for 20 minutes with no structural failure; results used to inform ongoing refinement of the mechanism, material selection, and integration of end-user feedback.</p>
+      </div>
+      <div class="img-wrapper">
+     <img src="newimage4.PNG" style="width:100%;">
+        <p class="img-caption">Full device kit including hand attachment, straps, and carrying case.</p>
+      </div>
+    </div>
+
+
+
+    <!-- FEA -->
+    <div style="margin-bottom:20px;">
+      <p style="font-size:0.7rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--terracotta);margin-bottom:16px;font-weight:400;">Finite Element Analysis (FEA)</p>
+      <p style="font-size:0.88rem;color:var(--text-light);line-height:1.8;margin-bottom:20px;">Finite Element Analysis (FEA) was conducted in SolidWorks Simulation to evaluate structural performance under applied loading conditions. The base plate was fixed, and a 110 N load was applied to the traction rod. Stress and displacement outputs were analyzed to assess structural integrity and identify critical stress concentrations.</p>
+      <div class="img-grid-2">
+        <div class="img-wrapper fea">
+       <div class="img-wrapper">
+    <img src="studyresult1.jpg" style="width:100%; height:auto; display:block;">
+	</div>
+          <p class="img-caption">Von Mises stress — Max 5.302×10⁵ N/m², below material yield limits.</p>
+        </div>
+        <div class="img-wrapper">
+   <div class="img-wrapper">
+    <img src="studyresult2.jpg" style="width:100%; height:auto; display:block;">
+	</div>
+          <p class="img-caption">Displacement — Max 3.094×10⁻³ mm under 110 N load.SolidWorks CAD render — front view showing clip slots</p>
+        </div>
+      </div>
+    
+    <div class="project-details">
+      <div class="detail-block">
+        <h4>My Contributions</h4>
+        <ul>
+          <li>Concept &amp; traction mechanism design</li>
+          <li>Mechanical component prototyping</li>
+          <li>Hand attachment design</li>
+          <li>Verification test development</li>
+          <li>SolidWorks CAD, drawings, BOM</li>
+          <li>FMEA &amp; FEA structural evaluation</li>
+          <li>DHF documentation</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <h4>FEA Key Results</h4>
+        <div class="result-stat">
+          <span class="stat-value">5.3×10⁵ N/m²</span>
+          <span class="stat-label">Maximum von Mises stress</span>
+        </div>
+        <div class="result-stat">
+          <span class="stat-value">0.003 mm</span>
+          <span class="stat-label">Maximum displacement</span>
+        </div>
+        <div class="result-stat">
+          <span class="stat-value">Safe ✓</span>
+          <span class="stat-label">Structure within design limits</span>
+        </div>
+      </div>
+      <div class="detail-block">
+        <h4>Testing Results</h4>
+        <div class="result-stat">
+          <span class="stat-value">~120 lbs</span>
+          <span class="stat-label">Traction force sustained</span>
+        </div>
+        <div class="result-stat">
+          <span class="stat-value">20 min</span>
+          <span class="stat-label">Duration with no failure</span>
+        </div>
+        <div class="result-stat">
+          <span class="stat-value">Pass ✓</span>
+          <span class="stat-label">All functional requirements met</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT 2: IV Line Organizer -->
+  <div class="project-block">
+    <div class="project-meta">
+      <span class="project-number">02</span>
+      <div class="project-info">
+        <p class="project-category">Medical Device · Design Engineering</p>
+        <h3 class="project-title">IV Line Organizer</h3>
+        <p class="project-desc">A 3D-printed, clip-based IV line management device designed to reduce line tangling and improve clinical workflow efficiency. The device attaches securely to standard IV poles and organizes multiple IV lines in a compact, accessible configuration. Three size variants were developed to accommodate different line densities while supporting standard IV catheter sizes (20G–24G). The design prioritizes manufacturability, ease of distribution, and intuitive operation, enabling rapid adoption in clinical environments with minimal user training.</p>
+        <div class="project-tags">
+          <span class="tag">SolidWorks</span>
+          <span class="tag">3D Printing</span>
+          <span class="tag">Clinical Design</span>
+          <span class="tag">Prototyping</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="img-grid-2">
+  <div class="img-wrapper">
+    <img src="clip1.png" style="width:100%; height:auto; display:block;">
+    <p class="img-caption">SolidWorks CAD render — front view showing clip slots.</p>
+  </div>
+  <div class="img-wrapper">
+    <img src="clip2.png" style="width:100%; height:auto; display:block;">
+    <p class="img-caption">SolidWorks CAD render — perspective view.</p>
+  </div>
+</div>
+
+    <div class="img-single">
+      <div class="img-wrapper">
+        <img src="clip3.png" style="width:100%; height:auto; display:block;">
+      </div>
+      <p class="img-caption">3D-printed prototype — device mounted on IV pole with lines organized through clips.</p>
+    </div>
+
+    <div class="project-details">
+      <div class="detail-block">
+        <h4>Design Goals</h4>
+        <ul>
+          <li>Reduce IV line entanglement</li>
+          <li>Clip-on attachment (no tools)</li>
+          <li>Accommodate multiple line sizes</li>
+          <li>Cleanable &amp; autoclavable materials</li>
+          <li>Compact form factor</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <h4>Process</h4>
+        <ul>
+          <li>User needs &amp; clinical research</li>
+          <li>Concept sketching &amp; CAD</li>
+          <li>FDM 3D printing iterations</li>
+          <li>Usability testing with nurses</li>
+          <li>Design refinement</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <h4>Tools Used</h4>
+        <ul>
+          <li>SolidWorks — CAD &amp; assemblies</li>
+          <li>FDM 3D Printer — prototyping</li>
+          <li>User interviews — requirements</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT 3: Distal Femur Implant -->
+  <div class="project-block">
+    <div class="project-meta">
+      <span class="project-number">03</span>
+      <div class="project-info">
+        <p class="project-category">Orthopaedic Implant · Structural Engineering</p>
+        <h3 class="project-title">Distal Femur Implant</h3>
+        <p class="project-desc">Design of an internal fixation implant for an 88-year-old patient with a distal femur fracture requiring immediate weight bearing who could not tolerate prolonged immobilization. The design needed to provide high mechanical stability, support full body weight loading, accommodate bone fragility due to age and osteoporosis, and remain compatible with a previous unicondylar knee replacement while minimizing surgical invasiveness and promoting bone healing.</p>
+        <div class="project-tags">
+          <span class="tag">SolidWorks</span>
+          <span class="tag">FEA</span>
+          <span class="tag">Orthopaedics</span>
+          <span class="tag">3D Printing</span>
+          <span class="tag">Structural Analysis</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="img-grid-2">
+      <div class="img-wrapper fea">
+        <img src="newimage6.PNG" style="max-width:100%; height:auto;">
+        <p class="img-caption">SolidWorks CAD model — distal femur fixation plate with screw configuration.</p>
+      </div>
+      <div class="img-wrapper fea">
+     <img src="implant.png" style="max-width:100%; height:auto; display:block;">
+        <p class="img-caption">Lateral plate CAD drawing with dimensions and screw hole configuration for distal femur implant design (cm).</p>
+      </div>
+    </div>
+
+    <div class="img-single" style="margin-top:16px;">
+      <div class="img-wrapper fea fea-crop">
+    <img src="newimage7.PNG" style="max-width:100%; height:auto;">
+        <p class="img-caption">FEA von Mises stress test of the structural plates (SolidWorks Simulation). Max stress well below yield strength of 8.274×10⁸ N/m².</p>
+      </div>
+    </div>
+
+    <div class="project-details">
+      <div class="detail-block">
+        <h4>FEA Study Details</h4>
+        <ul>
+          <li>Static 3(-Default) study type</li>
+          <li>URES resultant displacement</li>
+          <li>Equivalent strain evaluation</li>
+          <li>Node 74821: max deformation</li>
+          <li>Boundary conditions: physiological</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <h4>Key Results</h4>
+        <div class="result-stat">
+          <span class="stat-value">1.37×10⁷ N/m²</span>
+          <span class="stat-label">Max von Mises stress (below yield strength)</span>
+        </div>
+        <div class="result-stat">
+          <span class="stat-value">Dual-plate</span>
+          <span class="stat-label">Design for improved load distribution &amp; stability</span>
+        </div>
+      </div>
+      <div class="detail-block">
+        <h4>Key Results</h4>
+        <ul>
+          <li>Dual-plate design for improved load distribution</li>
+          <li>Max von Mises stress ≈ 1.37×10⁷ N/m² — below yield strength</li>
+          <li>Supports early weight-bearing conditions</li>
+          <li>Compatible with existing unicondylar knee replacement</li>
+          <li>Met all clinical &amp; mechanical design constraints</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <p class="section-label">Let's Connect</p>
+    <h2 class="section-title" style="font-size:2.8rem;">Get in Touch</h2>
+    <p style="color:var(--text-light); font-size:0.95rem; line-height:1.8;">I'm actively exploring opportunities in mechanical design, product development, and manufacturing engineering in the medical device space. Feel free to reach out.</p>
+    <a href="mailto:parmiss.abedini01@yahoo.com" class="contact-email">parmiss.abedini01@yahoo.com</a>
+    <div class="contact-links">
+      <a href="https://www.linkedin.com/in/parmiss-abedini" target="_blank">LinkedIn ↗</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 Parmiss Abedini · Mechanical Design &amp; Prototyping Engineer
+</footer>
+
+<!-- Email Modal -->
+<div id="email-modal" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(44,24,16,0.55);align-items:center;justify-content:center;" onclick="if(event.target===this)this.style.display='none'">
+  <div style="background:var(--cream);padding:48px 40px;max-width:420px;width:90%;text-align:center;position:relative;">
+    <button onclick="document.getElementById('email-modal').style.display='none'" style="position:absolute;top:16px;right:20px;background:none;border:none;font-size:1.4rem;cursor:pointer;color:var(--text-light);">×</button>
+    <p style="font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--terracotta);margin-bottom:16px;">Get in Touch</p>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--deep-brown);margin-bottom:24px;">Feel free to reach out via email:</p>
+    <a href="mailto:parmiss.abedini01@yahoo.com" style="display:block;font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--terracotta);text-decoration:none;word-break:break-all;margin-bottom:28px;">parmiss.abedini01@yahoo.com</a>
+    <a href="mailto:parmiss.abedini01@yahoo.com" style="display:inline-block;padding:12px 28px;background:var(--terracotta);color:white;text-decoration:none;font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;">Send Email</a>
+  </div>
+</div>
+
+</body>
+</html>
